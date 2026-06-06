@@ -199,6 +199,64 @@
                 "pagination-ellipsis.blade.php"
             ],
             "dependencies": []
+        },
+        "progress": {
+            "files": ["progress.blade.php"],
+            "dependencies": []
+        },
+        "sonner": {
+            "files": ["sonner.blade.php"],
+            "dependencies": []
+        },
+        "command": {
+            "files": [
+                "command.blade.php",
+                "command-input.blade.php",
+                "command-list.blade.php",
+                "command-empty.blade.php",
+                "command-group.blade.php",
+                "command-item.blade.php",
+                "command-separator.blade.php",
+                "command-shortcut.blade.php"
+            ],
+            "dependencies": []
+        },
+        "calendar": {
+            "files": ["calendar.blade.php"],
+            "dependencies": []
+        },
+        "form": {
+            "files": [
+                "form.blade.php",
+                "form-item.blade.php",
+                "form-label.blade.php",
+                "form-control.blade.php",
+                "form-description.blade.php",
+                "form-message.blade.php"
+            ],
+            "dependencies": ["label"]
+        },
+        "sidebar": {
+            "files": [
+                "sidebar-provider.blade.php",
+                "sidebar.blade.php",
+                "sidebar-trigger.blade.php",
+                "sidebar-content.blade.php",
+                "sidebar-header.blade.php",
+                "sidebar-footer.blade.php",
+                "sidebar-group.blade.php",
+                "sidebar-group-label.blade.php",
+                "sidebar-group-content.blade.php",
+                "sidebar-menu.blade.php",
+                "sidebar-menu-item.blade.php",
+                "sidebar-menu-button.blade.php",
+                "sidebar-menu-sub.blade.php",
+                "sidebar-menu-sub-item.blade.php",
+                "sidebar-menu-sub-button.blade.php",
+                "sidebar-separator.blade.php",
+                "sidebar-inset.blade.php"
+            ],
+            "dependencies": []
         }
     }
 }

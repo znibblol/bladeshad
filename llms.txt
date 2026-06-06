@@ -514,6 +514,209 @@ Props on `pagination-previous` and `pagination-next`: `href` (string).
 
 ---
 
+---
+
+### progress
+
+Props: `value` (int, default 0), `max` (int, default 100)
+
+```blade
+<x-ui.progress :value="65" />
+<x-ui.progress :value="$job->progress" :max="$job->total" class="h-2" />
+```
+
+---
+
+### sonner
+
+Toast notification container. Place once in your layout. Trigger toasts from JavaScript with `window.toast()`.
+
+Props: `position` (top-left|top-center|top-right|bottom-left|bottom-center|bottom-right, default bottom-right), `duration` (ms, default 4000)
+
+```blade
+{{-- In layout --}}
+<x-ui.sonner />
+
+{{-- Trigger from JS --}}
+<script>
+toast('Saved successfully');
+toast.success('Profile updated');
+toast.error('Something went wrong', { description: 'Please try again.' });
+toast.warning('Disk almost full');
+toast.info('New version available');
+</script>
+```
+
+---
+
+### command
+
+Command palette / searchable list. Uses Alpine.js to filter items client-side.
+
+Sub-components: `command`, `command-input`, `command-list`, `command-empty`, `command-group`, `command-item`, `command-separator`, `command-shortcut`.
+
+Props on `command-item`: `value` (string, required — text used for filtering), `disabled` (bool).
+Props on `command-group`: `heading` (string).
+
+`command-empty` is shown automatically when the query matches nothing. Typically used inside a `dialog`.
+
+```blade
+<x-ui.dialog>
+    <x-ui.dialog-trigger>
+        <x-ui.button variant="outline">Open command palette</x-ui.button>
+    </x-ui.dialog-trigger>
+    <x-ui.dialog-overlay />
+    <x-ui.dialog-content class="p-0">
+        <x-ui.command>
+            <x-ui.command-input placeholder="Search..." />
+            <x-ui.command-list>
+                <x-ui.command-empty />
+                <x-ui.command-group heading="Suggestions">
+                    <x-ui.command-item value="calendar">
+                        <x-lucide-calendar class="h-4 w-4" />
+                        Calendar
+                    </x-ui.command-item>
+                    <x-ui.command-item value="search">
+                        <x-lucide-search class="h-4 w-4" />
+                        Search
+                        <x-ui.command-shortcut>⌘K</x-ui.command-shortcut>
+                    </x-ui.command-item>
+                </x-ui.command-group>
+                <x-ui.command-separator />
+                <x-ui.command-group heading="Settings">
+                    <x-ui.command-item value="profile">Profile</x-ui.command-item>
+                    <x-ui.command-item value="billing">Billing</x-ui.command-item>
+                </x-ui.command-group>
+            </x-ui.command-list>
+        </x-ui.command>
+    </x-ui.dialog-content>
+</x-ui.dialog>
+```
+
+---
+
+### calendar
+
+Single-month date picker. Uses Alpine.js for navigation and selection.
+
+Props: `selected` (string, ISO date e.g. "2024-01-15", default null), `disabled` (bool, default false)
+
+Dispatches `calendar-change` event with `{ date: "YYYY-MM-DD" }` (or `null`) when a day is selected.
+
+```blade
+<x-ui.calendar />
+<x-ui.calendar selected="2024-06-01" />
+
+{{-- Listen for selection --}}
+<div @calendar-change="selectedDate = $event.detail.date">
+    <x-ui.calendar />
+</div>
+
+{{-- Inside a popover for a date picker pattern --}}
+<x-ui.popover>
+    <x-ui.popover-trigger>
+        <x-ui.button variant="outline">Pick a date</x-ui.button>
+    </x-ui.popover-trigger>
+    <x-ui.popover-content class="w-auto p-0">
+        <x-ui.calendar />
+    </x-ui.popover-content>
+</x-ui.popover>
+```
+
+---
+
+### form
+
+Accessible form structure with Laravel error bag integration.
+
+Sub-components: `form`, `form-item`, `form-label`, `form-control`, `form-description`, `form-message`.
+
+Props on `form-label`: `for` (string — input name/id), `error` (bool, forces red color).
+Props on `form-message`: `name` (string — reads `$errors->first($name)` automatically).
+
+```blade
+<x-ui.form method="POST" action="/profile">
+    @csrf
+    <x-ui.form-item>
+        <x-ui.form-label for="username">Username</x-ui.form-label>
+        <x-ui.form-control>
+            <x-ui.input id="username" name="username" value="{{ old('username') }}" />
+        </x-ui.form-control>
+        <x-ui.form-description>This is your public display name.</x-ui.form-description>
+        <x-ui.form-message name="username" />
+    </x-ui.form-item>
+    <x-ui.button type="submit">Save</x-ui.button>
+</x-ui.form>
+```
+
+---
+
+### sidebar
+
+App shell sidebar with collapsible support. Requires Alpine.js.
+
+Sub-components: `sidebar-provider`, `sidebar`, `sidebar-trigger`, `sidebar-content`, `sidebar-header`, `sidebar-footer`, `sidebar-group`, `sidebar-group-label`, `sidebar-group-content`, `sidebar-menu`, `sidebar-menu-item`, `sidebar-menu-button`, `sidebar-menu-sub`, `sidebar-menu-sub-item`, `sidebar-menu-sub-button`, `sidebar-separator`, `sidebar-inset`.
+
+Props on `sidebar-provider`: `defaultOpen` (bool, default true)
+Props on `sidebar`: `side` (left|right, default left), `collapsible` (offcanvas|icon|none, default offcanvas)
+Props on `sidebar-menu-button`: `href` (string), `isActive` (bool), `size` (default|sm|lg)
+Props on `sidebar-menu-sub-button`: `href` (string), `isActive` (bool), `size` (sm|md)
+
+On desktop: `sidebar-trigger` toggles width. On mobile: `sidebar-trigger` opens a drawer overlay.
+
+```blade
+<x-ui.sidebar-provider>
+    <x-ui.sidebar>
+        <x-ui.sidebar-header>
+            <span class="px-2 text-lg font-semibold">My App</span>
+        </x-ui.sidebar-header>
+        <x-ui.sidebar-content>
+            <x-ui.sidebar-group>
+                <x-ui.sidebar-group-label>Navigation</x-ui.sidebar-group-label>
+                <x-ui.sidebar-group-content>
+                    <x-ui.sidebar-menu>
+                        <x-ui.sidebar-menu-item>
+                            <x-ui.sidebar-menu-button href="/" :isActive="request()->is('/')">
+                                <x-lucide-home class="h-4 w-4" />
+                                Home
+                            </x-ui.sidebar-menu-button>
+                        </x-ui.sidebar-menu-item>
+                        <x-ui.sidebar-menu-item>
+                            <x-ui.sidebar-menu-button href="/settings">
+                                <x-lucide-settings class="h-4 w-4" />
+                                Settings
+                            </x-ui.sidebar-menu-button>
+                        </x-ui.sidebar-menu-item>
+                    </x-ui.sidebar-menu>
+                </x-ui.sidebar-group-content>
+            </x-ui.sidebar-group>
+        </x-ui.sidebar-content>
+        <x-ui.sidebar-footer>
+            <x-ui.sidebar-menu>
+                <x-ui.sidebar-menu-item>
+                    <x-ui.sidebar-menu-button href="/logout">
+                        <x-lucide-log-out class="h-4 w-4" />
+                        Log out
+                    </x-ui.sidebar-menu-button>
+                </x-ui.sidebar-menu-item>
+            </x-ui.sidebar-menu>
+        </x-ui.sidebar-footer>
+    </x-ui.sidebar>
+
+    <x-ui.sidebar-inset>
+        <header class="flex h-14 items-center gap-4 border-b px-4">
+            <x-ui.sidebar-trigger />
+            <h1 class="font-semibold">Dashboard</h1>
+        </header>
+        <div class="p-4">
+            Page content here.
+        </div>
+    </x-ui.sidebar-inset>
+</x-ui.sidebar-provider>
+```
+
+---
+
 ## Available components (for bladeshad:add)
 
-button, badge, input, label, textarea, separator, skeleton, card, alert, avatar, table, accordion, tabs, dialog, sheet, alert-dialog, dropdown-menu, popover, tooltip, switch, checkbox, select, toggle, breadcrumb, pagination
+button, badge, input, label, textarea, separator, skeleton, card, alert, avatar, table, accordion, tabs, dialog, sheet, alert-dialog, dropdown-menu, popover, tooltip, switch, checkbox, select, toggle, breadcrumb, pagination, progress, sonner, command, calendar, form, sidebar
