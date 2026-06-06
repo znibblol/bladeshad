@@ -1,0 +1,204 @@
+{
+    "components": {
+        "button": {
+            "files": ["button.blade.php"],
+            "dependencies": []
+        },
+        "badge": {
+            "files": ["badge.blade.php"],
+            "dependencies": []
+        },
+        "input": {
+            "files": ["input.blade.php"],
+            "dependencies": []
+        },
+        "label": {
+            "files": ["label.blade.php"],
+            "dependencies": []
+        },
+        "textarea": {
+            "files": ["textarea.blade.php"],
+            "dependencies": []
+        },
+        "separator": {
+            "files": ["separator.blade.php"],
+            "dependencies": []
+        },
+        "skeleton": {
+            "files": ["skeleton.blade.php"],
+            "dependencies": []
+        },
+        "card": {
+            "files": [
+                "card.blade.php",
+                "card-header.blade.php",
+                "card-title.blade.php",
+                "card-description.blade.php",
+                "card-content.blade.php",
+                "card-footer.blade.php"
+            ],
+            "dependencies": []
+        },
+        "alert": {
+            "files": [
+                "alert.blade.php",
+                "alert-title.blade.php",
+                "alert-description.blade.php"
+            ],
+            "dependencies": []
+        },
+        "avatar": {
+            "files": [
+                "avatar.blade.php",
+                "avatar-image.blade.php",
+                "avatar-fallback.blade.php"
+            ],
+            "dependencies": []
+        },
+        "table": {
+            "files": [
+                "table.blade.php",
+                "table-header.blade.php",
+                "table-body.blade.php",
+                "table-footer.blade.php",
+                "table-row.blade.php",
+                "table-head.blade.php",
+                "table-cell.blade.php",
+                "table-caption.blade.php"
+            ],
+            "dependencies": []
+        },
+        "dialog": {
+            "files": [
+                "dialog.blade.php",
+                "dialog-trigger.blade.php",
+                "dialog-overlay.blade.php",
+                "dialog-content.blade.php",
+                "dialog-header.blade.php",
+                "dialog-title.blade.php",
+                "dialog-description.blade.php",
+                "dialog-footer.blade.php",
+                "dialog-close.blade.php"
+            ],
+            "dependencies": ["button"]
+        },
+        "sheet": {
+            "files": [
+                "sheet.blade.php",
+                "sheet-trigger.blade.php",
+                "sheet-overlay.blade.php",
+                "sheet-content.blade.php",
+                "sheet-header.blade.php",
+                "sheet-title.blade.php",
+                "sheet-description.blade.php",
+                "sheet-footer.blade.php",
+                "sheet-close.blade.php"
+            ],
+            "dependencies": ["button"]
+        },
+        "accordion": {
+            "files": [
+                "accordion.blade.php",
+                "accordion-item.blade.php",
+                "accordion-trigger.blade.php",
+                "accordion-content.blade.php"
+            ],
+            "dependencies": []
+        },
+        "tabs": {
+            "files": [
+                "tabs.blade.php",
+                "tabs-list.blade.php",
+                "tabs-trigger.blade.php",
+                "tabs-content.blade.php"
+            ],
+            "dependencies": []
+        },
+        "alert-dialog": {
+            "files": [
+                "alert-dialog.blade.php",
+                "alert-dialog-content.blade.php",
+                "alert-dialog-header.blade.php",
+                "alert-dialog-title.blade.php",
+                "alert-dialog-description.blade.php",
+                "alert-dialog-footer.blade.php",
+                "alert-dialog-action.blade.php",
+                "alert-dialog-cancel.blade.php"
+            ],
+            "dependencies": ["button", "dialog"]
+        },
+        "dropdown-menu": {
+            "files": [
+                "dropdown-menu.blade.php",
+                "dropdown-menu-trigger.blade.php",
+                "dropdown-menu-content.blade.php",
+                "dropdown-menu-item.blade.php",
+                "dropdown-menu-separator.blade.php",
+                "dropdown-menu-label.blade.php",
+                "dropdown-menu-shortcut.blade.php"
+            ],
+            "dependencies": []
+        },
+        "popover": {
+            "files": [
+                "popover.blade.php",
+                "popover-trigger.blade.php",
+                "popover-content.blade.php"
+            ],
+            "dependencies": []
+        },
+        "tooltip": {
+            "files": [
+                "tooltip.blade.php",
+                "tooltip-trigger.blade.php",
+                "tooltip-content.blade.php"
+            ],
+            "dependencies": []
+        },
+        "switch": {
+            "files": ["switch.blade.php"],
+            "dependencies": []
+        },
+        "checkbox": {
+            "files": ["checkbox.blade.php"],
+            "dependencies": []
+        },
+        "select": {
+            "files": [
+                "select.blade.php",
+                "select-trigger.blade.php",
+                "select-content.blade.php",
+                "select-item.blade.php"
+            ],
+            "dependencies": []
+        },
+        "toggle": {
+            "files": ["toggle.blade.php"],
+            "dependencies": []
+        },
+        "breadcrumb": {
+            "files": [
+                "breadcrumb.blade.php",
+                "breadcrumb-list.blade.php",
+                "breadcrumb-item.blade.php",
+                "breadcrumb-link.blade.php",
+                "breadcrumb-page.blade.php",
+                "breadcrumb-separator.blade.php",
+                "breadcrumb-ellipsis.blade.php"
+            ],
+            "dependencies": []
+        },
+        "pagination": {
+            "files": [
+                "pagination.blade.php",
+                "pagination-content.blade.php",
+                "pagination-item.blade.php",
+                "pagination-link.blade.php",
+                "pagination-previous.blade.php",
+                "pagination-next.blade.php",
+                "pagination-ellipsis.blade.php"
+            ],
+            "dependencies": []
+        }
+    }
+}

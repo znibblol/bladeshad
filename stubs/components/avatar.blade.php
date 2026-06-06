@@ -1,0 +1,7 @@
+@php
+$classes = cn('relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full');
+@endphp
+
+<div {{ $attributes->merge(['class' => $classes]) }}>
+    {{ $slot }}
+</div>

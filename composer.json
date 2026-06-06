@@ -1,0 +1,24 @@
+{
+  "name": "znibb/bladeshad",
+  "description": "shadcn/ui components ported to Laravel Blade",
+  "type": "library",
+  "version": "1.0.0",
+  "license": "MIT",
+  "require": {
+    "php": "^8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "BladeShadow\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "BladeShad\\BladeShadServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
