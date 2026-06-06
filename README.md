@@ -1,8 +1,8 @@
-# BladeShadow
+# BladeShad
 
 > shadcn/ui components, ported to Laravel Blade.
 
-BladeShadow brings the look and feel of [shadcn/ui](https://ui.shadcn.com) into Laravel Blade views. Instead of a React component library, you get native `.blade.php` files — copied directly into your project so you own and can customise every line.
+BladeShad brings the look and feel of [shadcn/ui](https://ui.shadcn.com) into Laravel Blade views. Instead of a React component library, you get native `.blade.php` files — copied directly into your project so you own and can customise every line.
 
 ---
 
@@ -147,7 +147,7 @@ The `cn()` helper merges Tailwind classes and is available globally after init:
 
 ## Theming
 
-BladeShadow uses the same CSS custom properties as shadcn/ui. Edit `resources/css/bladeshad.css` to change colours, border radius, and other design tokens. Dark mode is supported via the `.dark` class on the `<html>` element.
+BladeShad uses the same CSS custom properties as shadcn/ui. Edit `resources/css/bladeshad.css` to change colours, border radius, and other design tokens. Dark mode is supported via the `.dark` class on the `<html>` element.
 
 ---
 
