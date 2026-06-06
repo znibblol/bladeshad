@@ -1,6 +1,6 @@
 <?php
 
-namespace BladeShadow\Console\Commands;
+namespace BladeShad\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Process;
